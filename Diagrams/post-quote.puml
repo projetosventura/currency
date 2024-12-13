@@ -1,0 +1,13 @@
+@startuml post-quote
+actor User
+participant "QuoteController" as QC
+participant "QuoteService" as QS
+participant "Database" as DB
+
+User -> QC: POST /quote
+QC -> QS: saveQuote(quoteData)
+QS -> DB: Save quote to database
+DB -> QS: Quote
+QS -> QC: Quote
+QC -> User: Quote
+@enduml

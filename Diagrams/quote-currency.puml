@@ -1,0 +1,17 @@
+@startuml quote-currency
+actor User
+participant "QuoteController" as QC
+participant "QuoteService" as QS
+participant "ExchangeRateService" as ERS
+participant "Database" as DB
+
+User -> QC: GET /quote/:currency
+QC -> ERS: getExchangeRate(currency)
+ERS -> ERS: Fetch exchange rate from API
+ERS -> QC: exchangeRate
+QC -> QS: saveQuote({ currency, rate, text, author })
+QS -> DB: Save quote to database
+DB -> QS: Quote
+QS -> QC: Quote
+QC -> User: Quote
+@enduml
