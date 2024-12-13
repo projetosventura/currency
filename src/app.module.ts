@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { QuoteModule } from './quote/quote.module';
 import { Quote } from './quote/entities/quote.entity';
 import { EmailService } from './email/email.service';
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 
 @Module({
   imports: [

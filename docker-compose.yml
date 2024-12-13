@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - '3000:3000'
+      - '3001:3000' # Change the host port to 3001
     environment:
       - EMAIL_USER=${EMAIL_USER}
       - EMAIL_PASS=${EMAIL_PASS}
@@ -12,6 +12,6 @@ services:
       - db
 
   db:
-    image: 'sqlite3'
+    image: 'nouchka/sqlite3'
     volumes:
       - ./database.sqlite:/data/database.sqlite
